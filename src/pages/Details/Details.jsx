@@ -7,7 +7,16 @@ import {
   Button,
 } from '@material-tailwind/react';
 import { Link, useParams } from 'react-router-dom';
+import {
+  setLocalStorage,
+  setLocalStorageWishList,
+} from '../../LocalStorage/setLocalStorage';
+
+
 function Details() {
+
+   
+
   const { bookId } = useParams();
   const [details, setDetails] = useState({});
 
@@ -23,19 +32,23 @@ function Details() {
     fnc();
   }, [bookId]);
   // console.log(details);
+ const {
+   bookName,
+   author,
+   category,
+   image,
+   publisher,
+   rating,
+   review,
+   
 
-  const {
-    bookName,
-    author,
-    category,
-    image,
-    publisher,
-    rating,
-    review,
-    
-    totalPages,
-    yearOfPublishing,
+   totalPages,
+   yearOfPublishing,
   } = details;
+  
+
+ 
+  
 
   const TABLE_ROWS = [
     {
@@ -57,6 +70,16 @@ function Details() {
   
   ];
   
+
+  const handleReadBook = details => {
+    // console.log('click hoice re vai hoice ', details);
+    // setLocalStorage(details);
+    setLocalStorage(details)
+  };
+
+  const handleWishlist = details => {
+    setLocalStorageWishList(details);
+   }
 
   return (
     <Card className=" my-10 flex flex-col container mx-auto  md:flex-row">
@@ -91,12 +114,9 @@ function Details() {
         </Typography>
         <Typography color="black" className="mb-8 font-normal space-x-2">
           <span className="text-xl font-bold ">Tags:</span>{' '}
-          <span className='bg-[#23BE0A26] p-2 rounded-full'>#{details.tags} </span>
-
-
-          {/* <span className='bg-[#23BE0A26] p-2 rounded-full'>#{details.tags[1]} </span> */}
-         
-         
+          <span className="bg-[#23BE0A26] p-2 rounded-full">
+            # {details.tags}{' '}
+          </span>
         </Typography>
         <hr />
 
@@ -134,8 +154,12 @@ function Details() {
         </table>
         <hr />
 
-        <div className='space-x-4 space-y-4'>
-          <Link href="#" className="inline-block">
+        <div className="space-x-4 space-y-4">
+          <Link
+            href="#"
+            onClick={() => handleReadBook(details)}
+            className="inline-block"
+          >
             <Button
               variant="text"
               className="flex items-center gap-2 bg-[#23BE0A] text-white hover:text-[#23BE0A] border border-[#23BE0A] hover:bg-transparent"
@@ -157,7 +181,11 @@ function Details() {
               </svg>
             </Button>
           </Link>
-          <Link href="#" className="inline-block">
+          <Link
+            href="#"
+            onClick={() => handleWishlist(details)}
+            className="inline-block"
+          >
             <Button
               variant="text"
               className="flex items-center gap-2 bg-[#50B1C9] text-white hover:text-[#50B1C9] border border-[#50B1C9] hover:bg-transparent"

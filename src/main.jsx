@@ -12,6 +12,9 @@ import Error from './components/Error';
 import ListedBooks from './pages/ListedBooks/ListedBooks';
 import PagesToRead from './pages/PagesToRead/PagesToRead';
 
+ import { ToastContainer, toast } from 'react-toastify';
+ import 'react-toastify/dist/ReactToastify.css';
+
 
 
 
@@ -50,6 +53,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <ToastContainer></ToastContainer>
   </React.StrictMode>
 );
 

@@ -13,7 +13,7 @@ function ListedBooks() {
         ListedBooks
       </div>
 
-      <div className="text-center">
+      <div className="text-center container mx-auto">
         <select
           name="cars"
           style={{ backgroundColor: colors.green, color: 'white' }}
@@ -26,7 +26,7 @@ function ListedBooks() {
         </select>
       </div>
 
-      <div>
+      <div className='container mx-auto'>
         <Tabs selectedIndex={tabIndex} onSelect={index => setTabIndex(index)}>
           <TabList>
             <Tab>Read Books</Tab>
