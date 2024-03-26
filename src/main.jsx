@@ -4,7 +4,9 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { NavbarWithMegaMenu } from './components/Navbar';
+
+import Home from './pages/Home/Home';
+import Root from './Root';
 
 
 
@@ -13,7 +15,15 @@ import { NavbarWithMegaMenu } from './components/Navbar';
 const router = createBrowserRouter([
   {
     path: '/',
-    element:<NavbarWithMegaMenu></NavbarWithMegaMenu>
+    element: <Root></Root>,
+    children: [
+      {
+        path: '/',
+        element:<Home></Home>
+      }
+    ]
+    
+    
   
   },
 ]);
