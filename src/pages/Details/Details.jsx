@@ -71,15 +71,7 @@ function Details() {
   ];
   
 
-  const handleReadBook = details => {
-    // console.log('click hoice re vai hoice ', details);
-    // setLocalStorage(details);
-    setLocalStorage(details)
-  };
-
-  const handleWishlist = details => {
-    setLocalStorageWishList(details);
-   }
+  
 
   return (
     <Card className=" my-10 flex flex-col container mx-auto  md:flex-row">
@@ -157,7 +149,7 @@ function Details() {
         <div className="space-x-4 space-y-4">
           <Link
             href="#"
-            onClick={() => handleReadBook(details)}
+            onClick={() => setLocalStorage(details)}
             className="inline-block"
           >
             <Button
@@ -183,7 +175,7 @@ function Details() {
           </Link>
           <Link
             href="#"
-            onClick={() => handleWishlist(details)}
+            onClick={() => setLocalStorageWishList(details)}
             className="inline-block"
           >
             <Button
