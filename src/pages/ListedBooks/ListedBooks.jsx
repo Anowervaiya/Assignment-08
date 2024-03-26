@@ -4,6 +4,8 @@ import { colors } from '../../Color/color';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { useState } from 'react';
+import ReadBooks from './ReadBooks';
+import WishList from './WishList';
 
 function ListedBooks() {
    const [tabIndex, setTabIndex] = useState(0);
@@ -33,10 +35,15 @@ function ListedBooks() {
             <Tab>Wishlist Books</Tab>
           </TabList>
           <TabPanel>
-            Read Books here mama
+
+            <ReadBooks></ReadBooks>
+            
+
           </TabPanel>
           <TabPanel>
-            wishlist books here npm khala
+
+            <WishList></WishList>
+            
           </TabPanel>
         </Tabs>
       </div>

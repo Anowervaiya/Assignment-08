@@ -40,14 +40,17 @@ function Details() {
    publisher,
    rating,
    review,
+   tags,
    
 
    totalPages,
    yearOfPublishing,
   } = details;
+
+  console.log(details);
   
 
- 
+  // const [first, second] = tags;
   
 
   const TABLE_ROWS = [
@@ -104,12 +107,14 @@ function Details() {
         <Typography color="black" className="mb-8 font-normal">
           <span className="text-xl font-bold">Review:</span> {review}
         </Typography>
-        <Typography color="black" className="mb-8 font-normal space-x-2">
-          <span className="text-xl font-bold ">Tags:</span>{' '}
-          <span className="bg-[#23BE0A26] p-2 rounded-full">
-            # {details.tags}{' '}
-          </span>
-        </Typography>
+        {/* <Typography color="black" className="mb-8 font-normal space-x-2">
+         <div>
+          <span className="text-black font-bold">Tags : </span>{' '}
+          <span>#{first}</span> #<span>{second}</span> <span></span>
+        </div>
+        </Typography> */}
+
+        
         <hr />
 
         {/* table er khela  */}

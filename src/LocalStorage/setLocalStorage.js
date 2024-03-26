@@ -19,42 +19,63 @@ const getLocalStorageWish = () => {
 };
 
 const setLocalStorage = details => {
-  const localStorageValue = getLocalStorage();
-  const findedData = localStorageValue.find(
-    item => item.bookId == details.bookId
-  );
 
-  if (!findedData) {
-    localStorageValue.push(details);
-    localStorage.setItem('book', JSON.stringify(localStorageValue));
-    toast.success('Book has added successfully in readlist');
-  } else {
-    toast.warning('this book  has been read');
-  }
 
-  return localStorageValue;
+  
+     const localStorageValue = getLocalStorage();
+
+    //  const LocalStorageWish = getLocalStorageWish();
+
+     // console.log(LocalStorageWish);
+
+     const findedData = localStorageValue.find(
+       item => item.bookId == details.bookId
+     );
+
+    //  const wishlistfindedData = LocalStorageWish.find(
+    //    item => item.bookId == details.bookId
+    //  );
+
+    //  const filterWishValue = LocalStorageWish.filter(
+    //    item => item.bookId != wishlistfindedData.bookId
+    //  );
+
+     
+     if (!findedData) {
+       localStorageValue.push(details);
+       localStorage.setItem('book', JSON.stringify(localStorageValue));
+
+       toast.success('Book has added successfully in readlist');
+     } else {
+       toast.warning('this book  has been read');
+     }
+  
+   
+  
+
 };
 
 
 
-const setLocalStorageWishList = details => {
+const setLocalStorageWishList = (details) => {
+  
+ 
   const localStorageValue = getLocalStorage();
 
   const LocalStorageWish = getLocalStorageWish();
- 
 
   const findedData = localStorageValue.find(
     item => item.bookId == details.bookId
   );
 
-  const wishlistFindedData = LocalStorageWish.find(item => item.bookId == details.bookId);
+  const wishlistFindedData = LocalStorageWish.find(
+    item => item.bookId == details.bookId
+  );
 
   if (findedData) {
     toast.warning('you already read this book so you can not add in wishlist');
     return;
-  }
-  
-  else if (!findedData && !wishlistFindedData) {
+  } else if (!findedData && !wishlistFindedData) {
     LocalStorageWish.push(details);
     localStorage.setItem('wishlist', JSON.stringify(LocalStorageWish));
 
@@ -64,4 +85,4 @@ const setLocalStorageWishList = details => {
   }
 };
 
-export { setLocalStorage, getLocalStorage, setLocalStorageWishList };
+export { setLocalStorage, getLocalStorage,getLocalStorageWish, setLocalStorageWishList };
