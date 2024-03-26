@@ -71,10 +71,10 @@ function SingleReadList({ item }) {
 
         <div className="*:m-4">
           <button className="btn bg-[#328EFF26] text-[#328EFF] rounded-full ">
-            Success
+          Category:  {category}
           </button>
           <button className="btn rounded-ful bg-[#FFAC3326] rounded-full  text-[#FFAC33]">
-            Warning
+           Rating: {rating}
           </button>
           <Link to={`/details/${bookId}`} className="inline-block">
             <Button
