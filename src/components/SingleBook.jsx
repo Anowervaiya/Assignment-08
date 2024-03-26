@@ -15,15 +15,15 @@ function SingleBook({ item }) {
   
   const [first,second] = tags;
    return (
-     <Card className=" overflow-hidden">
+     <Card className=" overflow-hidden p-4 border">
        <CardHeader
          floated={false}
          shadow={false}
          color="transparent"
-         className="m-0 rounded-none"
+         className="m-0 rounded-lg py-4 h-1/2 bg-gray-200"
        >
          <img
-           src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
+           src={image} className='mx-auto h-full  rounded-lg'
            alt="ui/ux review check"
          />
        </CardHeader>
@@ -31,7 +31,7 @@ function SingleBook({ item }) {
          <Typography
            variant="h6"
            color="blue-gray"
-           className="*:mr-6 *:text-[#23BE0A] *:bg-[#23BE0A29] *:p-3 *:rounded-full"
+           className=" *:text-[#23BE0A] *:bg-[#23BE0A29] *:px-3 *:py-2 *:rounded-full flex flex-wrap gap-4"
          >
            <span>{first}</span>
            <span>{second}</span>

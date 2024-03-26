@@ -11,7 +11,7 @@ function BooksContainer() {
   }, []);
 
   return (
-    <div className='grid  container mx-auto grid-cols-2 lg:grid-cols-3 gap-4'>
+    <div className='grid  container mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
       {
         books.map(item => <SingleBook item={item}></SingleBook>
         )

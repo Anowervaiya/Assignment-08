@@ -3,7 +3,7 @@ import React from 'react'
 function Banner() {
   return (
     <div className=" bg-base-200">
-      <div className="flex px-4 py-16 flex-col justify-between md:flex-row-reverse rounded-2xl">
+      <div className="flex px-4 py-16 flex-col justify-between lg:flex-row-reverse rounded-2xl">
         <img src="https://i.ibb.co/6WRVhCh/book-composition-with-open-book-23-2147690555.jpg" className="   mb-10 rounded-lg shadow-2xl" />
         <div className="flex  flex-col items-center justify-center">
           <div>
