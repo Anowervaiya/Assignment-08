@@ -47,7 +47,7 @@ function Details() {
    yearOfPublishing,
   } = details;
 
-  console.log(details);
+  // console.log(details);
   
 
   // const [first, second] = tags;

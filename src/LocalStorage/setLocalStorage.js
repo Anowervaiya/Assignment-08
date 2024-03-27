@@ -19,47 +19,35 @@ const getLocalStorageWish = () => {
 };
 
 const setLocalStorage = details => {
+  const localStorageValue = getLocalStorage();
 
+  //  const LocalStorageWish = getLocalStorageWish();
 
-  
-     const localStorageValue = getLocalStorage();
+  // console.log(LocalStorageWish);
 
-    //  const LocalStorageWish = getLocalStorageWish();
+  const findedData = localStorageValue.find(
+    item => item.bookId == details.bookId
+  );
 
-     // console.log(LocalStorageWish);
+  //  const wishlistfindedData = LocalStorageWish.find(
+  //    item => item.bookId == details.bookId
+  //  );
 
-     const findedData = localStorageValue.find(
-       item => item.bookId == details.bookId
-     );
+  //  const filterWishValue = LocalStorageWish.filter(
+  //    item => item.bookId != wishlistfindedData.bookId
+  //  );
 
-    //  const wishlistfindedData = LocalStorageWish.find(
-    //    item => item.bookId == details.bookId
-    //  );
+  if (!findedData) {
+    localStorageValue.push(details);
+    localStorage.setItem('book', JSON.stringify(localStorageValue));
 
-    //  const filterWishValue = LocalStorageWish.filter(
-    //    item => item.bookId != wishlistfindedData.bookId
-    //  );
-
-     
-     if (!findedData) {
-       localStorageValue.push(details);
-       localStorage.setItem('book', JSON.stringify(localStorageValue));
-
-       toast.success('Book has added successfully in readlist');
-     } else {
-       toast.warning('this book  has been read');
-     }
-  
-   
-  
-
+    toast.success('Book has added successfully in readlist');
+  } else {
+    toast.warning('this book  has been read');
+  }
 };
 
-
-
-const setLocalStorageWishList = (details) => {
-  
- 
+const setLocalStorageWishList = details => {
   const localStorageValue = getLocalStorage();
 
   const LocalStorageWish = getLocalStorageWish();
@@ -85,4 +73,9 @@ const setLocalStorageWishList = (details) => {
   }
 };
 
-export { setLocalStorage, getLocalStorage,getLocalStorageWish, setLocalStorageWishList };
+export {
+  setLocalStorage,
+  getLocalStorage,
+  getLocalStorageWish,
+  setLocalStorageWishList,
+};

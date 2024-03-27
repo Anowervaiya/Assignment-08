@@ -12,7 +12,7 @@ import { CiLocationOn } from 'react-icons/ci';
 import { Link } from 'react-router-dom';
 
 function SingleReadList({ item }) {
-  console.log(item);
+  
   const {
     bookId,
     bookName,
