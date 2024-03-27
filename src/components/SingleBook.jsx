@@ -22,15 +22,15 @@ function SingleBook({ item }) {
            floated={false}
            shadow={false}
            color="transparent"
-           className="m-0 rounded-lg py-4 h-1/2 bg-gray-200"
+           className="m-0 rounded-lg py-4 h-[300px] bg-gray-200"
          >
            <img
              src={image}
              className="mx-auto h-full  rounded-lg"
              alt="ui/ux review check"
            />
-         </CardHeader>
-         <CardBody>
+         </CardHeader  >
+         <div className='py-8'>
            <Typography
              variant="h6"
              color="blue-gray"
@@ -43,12 +43,12 @@ function SingleBook({ item }) {
              className="mt-8  flex flex-col 
             "
            >
-             <h1 className="text-3xl text-black font-bold ">{bookName}</h1>
+             <h1 className="text-xl text-black font-bold ">{bookName}</h1>
              <p className="font-bold text-xl mt-4 ">By : {author}</p>
 
              <div className="border-b-4 mt-4 border-dashed"></div>
            </Typography>
-         </CardBody>
+         </div>
          <div className="flex mx-6 items-center justify-between flex-grow pb-4">
            <div className="flex font-bold  items-center">{category}</div>
            <Typography className="font-bold text-xl justify-center flex  items-center gap-4">
