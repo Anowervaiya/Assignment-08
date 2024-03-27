@@ -14,8 +14,6 @@ import PagesToRead from './pages/PagesToRead/PagesToRead';
 
  import { ToastContainer, toast } from 'react-toastify';
  import 'react-toastify/dist/ReactToastify.css';
-import ReadBooks from './pages/ListedBooks/ReadBooks';
-import WishList from './pages/ListedBooks/WishList';
 
 
 

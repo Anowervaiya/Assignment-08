@@ -1,16 +1,80 @@
-import React from 'react';
 import { colors } from '../../Color/color';
 
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { useState } from 'react';
-import ReadBooks from './ReadBooks';
-import WishList from './WishList';
 
+import React, { useEffect } from 'react';
+import { getLocalStorage, getLocalStorageWish } from '../../LocalStorage/setLocalStorage';
+import SingleReadList from '../../components/SingleReadList';
 
+import { Link } from 'react-router-dom';
 
 function ListedBooks() {
   const [tabIndex, setTabIndex] = useState(0);
+  const [displayBooks, setDisplayBooks] = useState([]);
+  const [displayWish, setDisplayWish] = useState([]);
+
+
+  const localStorageValue = getLocalStorage();
+
+  const wishLocalStorageValue = getLocalStorageWish();
+  // console.log(localStorageValue);
+
+  useEffect(() => {
+    setDisplayBooks(localStorageValue);
+    setDisplayWish(wishLocalStorageValue);
+  }, []);
+
+  const handleSortByRating = (event) => {
+    const selectedSortBy = event.target.value;
+
+
+
+     let sortedData = [];
+     if (selectedSortBy === 'Rating') {
+       sortedData = [...displayBooks].sort((a, b) => b.rating - a.rating);
+     } else if (selectedSortBy === 'Numberofpages') {
+       sortedData = [...displayBooks].sort(
+         (a, b) => b.totalPages - a.totalPages
+       );
+     } else if (selectedSortBy === 'Published') {
+       sortedData = [...displayBooks].sort(
+         (a, b) => b.yearOfPublishing - a.yearOfPublishing
+       );
+     } else {
+       sortedData = [...displayBooks];
+     }
+
+     setDisplayBooks(sortedData);
+
+
+
+
+
+
+
+
+
+     if (selectedSortBy === 'Rating') {
+       sortedData = [...displayWish].sort((a, b) => b.rating - a.rating);
+     } else if (selectedSortBy === 'Numberofpages') {
+       sortedData = [...displayWish].sort(
+         (a, b) => b.totalPages - a.totalPages
+       );
+     }
+     else if (selectedSortBy === 'Published') {
+       sortedData = [...displayWish].sort(
+         (a, b) => b.yearOfPublishing - a.yearOfPublishing
+       );
+     }
+     
+     else {
+       sortedData = [...displayWish];
+     }
+
+     setDisplayWish(sortedData);
+  };
 
   return (
     <>
@@ -20,6 +84,7 @@ function ListedBooks() {
 
       <div className="text-center container mx-auto">
         <select
+          onChange={handleSortByRating}
           name="cars"
           style={{ backgroundColor: colors.green, color: 'white' }}
           className="p-2 rounded-lg font-bold *:bg-gray-400 *:text-black outline-light-green-500   cursor-pointer"
@@ -28,7 +93,7 @@ function ListedBooks() {
             Sort By
           </option>
           <option value="Rating">Rating</option>
-          <option value="Number of pages">Number of pages</option>
+          <option value="Numberofpages">Number of pages</option>
           <option value="Published">Published Year</option>
         </select>
       </div>
@@ -40,12 +105,31 @@ function ListedBooks() {
             <Tab>Wishlist Books</Tab>
           </TabList>
           <TabPanel>
-            <ReadBooks
-              
-            ></ReadBooks>
+            <div className="space-y-8 my-10">
+              {displayBooks.length > 0 ? (
+                displayBooks.map((item, index) => (
+                  <SingleReadList key={index} item={item}></SingleReadList>
+                ))
+              ) : (
+                <Link to={'/'} className="btn ">
+                  Go to Home
+                </Link>
+              )}
+            </div>
           </TabPanel>
           <TabPanel>
-            <WishList></WishList>
+            {' '}
+            <div className="space-y-8 my-10">
+              {displayBooks.length > 0 ? (
+                displayBooks.map((item, index) => (
+                  <SingleReadList key={index} item={item}></SingleReadList>
+                ))
+              ) : (
+                <Link to={'/'} className="btn ">
+                  Go to Home
+                </Link>
+              )}
+            </div>
           </TabPanel>
         </Tabs>
       </div>
