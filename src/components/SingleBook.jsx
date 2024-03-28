@@ -36,7 +36,7 @@ function SingleBook({ item }) {
              color="blue-gray"
              className=" *:text-[#23BE0A] *:bg-[#23BE0A29] *:px-3 *:py-2 *:rounded-full flex flex-wrap gap-4"
            >
-             <span>{first}</span>
+             <span>{first}</span> 
              <span>{second}</span>
            </Typography>
            <Typography

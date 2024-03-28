@@ -18,20 +18,22 @@ function Details() {
    
 
   const { bookId } = useParams();
-  const [details, setDetails] = useState({});
+  const [details, setDetails] = useState(false);
 
   useEffect(() => {
     const fnc = async () => {
+
       const res = await fetch('/bookData.json');
       const jsonData = await res.json();
+      
 
       const singleData = jsonData.find(item => item.bookId == bookId);
 
       setDetails(singleData);
     };
     fnc();
-  }, [bookId]);
-  // console.log(details);
+  }, []);
+  if (!details) return ''
  const {
    bookName,
    author,
@@ -49,8 +51,7 @@ function Details() {
 
   // console.log(details);
   
-
-  // const [first, second] = tags;
+  const [first, second] = tags;
   
 
   const TABLE_ROWS = [
@@ -107,14 +108,13 @@ function Details() {
         <Typography color="black" className="mb-8 font-normal">
           <span className="text-xl font-bold">Review:</span> {review}
         </Typography>
-        {/* <Typography color="black" className="mb-8 font-normal space-x-2">
-         <div>
-          <span className="text-black font-bold">Tags : </span>{' '}
-          <span>#{first}</span> #<span>{second}</span> <span></span>
-        </div>
-        </Typography> */}
+        <Typography color="black" className="mb-8 font-normal space-x-2">
+          <div>
+            <span className="text-black font-bold">Tags : </span>{' '}
+            <span>#{first}</span> #<span>{second}</span>
+          </div>
+        </Typography>
 
-        
         <hr />
 
         {/* table er khela  */}
