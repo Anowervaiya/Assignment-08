@@ -7,20 +7,9 @@ import {
   IconButton,
   List,
   ListItem,
- 
-
 } from '@material-tailwind/react';
-import {
-
-  Bars3Icon,
-  XMarkIcon,
-} from '@heroicons/react/24/outline';
-import { NavLink } from 'react-router-dom';
-
-
-
-
-
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Link, NavLink } from 'react-router-dom';
 
 function NavList() {
   return (
@@ -66,13 +55,45 @@ function NavList() {
             ? 'pending'
             : isActive
             ? 'border border-green-300 rounded-lg text-green-300  font-bold'
-              : ''
-          
-          
+            : ''
         }
       >
         <ListItem className="flex items-center gap-2 py-2 pr-4">
           Read to pages
+        </ListItem>
+      </NavLink>
+      <NavLink
+        to={'/contactUs'}
+        as="a"
+        href="#"
+        variant="small"
+        className={({ isActive, isPending }) =>
+          isPending
+            ? 'pending'
+            : isActive
+            ? 'border border-green-300 rounded-lg text-green-300  font-bold'
+            : ''
+        }
+      >
+        <ListItem className="flex items-center gap-2 py-2 pr-4">
+         Contact Us
+        </ListItem>
+      </NavLink>
+      <NavLink
+        to={'/aboutUs'}
+        as="a"
+        href="#"
+        variant="small"
+        className={({ isActive, isPending }) =>
+          isPending
+            ? 'pending'
+            : isActive
+            ? 'border border-green-300 rounded-lg text-green-300  font-bold'
+            : ''
+        }
+      >
+        <ListItem className="flex items-center gap-2 py-2 pr-4">
+        About Us
         </ListItem>
       </NavLink>
     </List>
@@ -92,14 +113,14 @@ export function NavbarWithMegaMenu() {
   return (
     <Navbar className="max-w-full py-2">
       <div className="flex items-center justify-between text-blue-gray-900">
-        <Typography
+        <Link to={'/'}
           as="a"
-          href="#"
-          variant="h6"
-          className="mr-4 cursor-pointer py-1.5 lg:ml-2"
+       
+          variant="h1"
+          className="mr-4 cursor-pointer py-1.5 lg:ml-2 font-extrabold text-xl md:text-2xl"
         >
-        BookShop
-        </Typography>
+          BookShop
+        </Link>
         <div className="hidden lg:block">
           <NavList />
         </div>

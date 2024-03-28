@@ -1,7 +1,7 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
-import './index.css'
+import './index.css';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
@@ -12,43 +12,43 @@ import Error from './components/Error';
 import ListedBooks from './pages/ListedBooks/ListedBooks';
 import PagesToRead from './pages/PagesToRead/PagesToRead';
 
- import { ToastContainer, toast } from 'react-toastify';
- import 'react-toastify/dist/ReactToastify.css';
-
-
-
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import ContactUs from './pages/ContactUs/ContactUs';
+import AboutUs from './pages/AboutUs/AboutUs';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Root></Root>,
-    errorElement:<Error></Error> ,
+    errorElement: <Error></Error>,
     children: [
       {
         path: '/',
-        element:<Home></Home>
+        element: <Home></Home>,
       },
       {
         path: '/details/:bookId',
-        element:<Details></Details>
+        element: <Details></Details>,
       },
       {
         path: '/ListedBooks',
-        element: <ListedBooks></ListedBooks>
-       
-        
+        element: <ListedBooks></ListedBooks>,
       },
-
 
       {
         path: '/PagesToRead',
-        element:<PagesToRead></PagesToRead>
+        element: <PagesToRead></PagesToRead>,
+      },
+      {
+        path: '/contactUs',
+        element: <ContactUs></ContactUs>,
+      },
+      {
+        path: '/aboutUs',
+        element:<AboutUs></AboutUs>
       }
-    ]
-     
-    
-  
+    ],
   },
 ]);
 
@@ -58,7 +58,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <ToastContainer></ToastContainer>
   </React.StrictMode>
 );
-
-
-
-
