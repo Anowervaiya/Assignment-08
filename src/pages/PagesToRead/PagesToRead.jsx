@@ -100,9 +100,9 @@ function PagesToRead() {
     },
   ];
   return (
-    <div className='container mx-auto'>
-      <BarChart
-        width={2500}
+    
+      <BarChart className='container mx-auto'
+        width={2200}
         height={500}
         data={data}
         margin={{
@@ -126,7 +126,7 @@ function PagesToRead() {
           ))}
         </Bar>
       </BarChart>
-    </div>
+    
   );
 }
 

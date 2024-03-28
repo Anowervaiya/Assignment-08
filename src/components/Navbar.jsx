@@ -29,8 +29,13 @@ function NavList() {
         as="a"
         to={'/'}
         variant="small"
-        color="blue-gray"
-        className="font-medium"
+        className={({ isActive, isPending }) =>
+          isPending
+            ? 'pending'
+            : isActive
+            ? 'border border-green-300 rounded-lg text-green-300 font-bold'
+            : ''
+        }
       >
         <ListItem className="flex items-center gap-2 py-2 pr-4">Home</ListItem>
       </NavLink>
@@ -39,8 +44,13 @@ function NavList() {
         as="a"
         to={'/ListedBooks'}
         variant="small"
-        color="blue-gray"
-        className="font-medium"
+        className={({ isActive, isPending }) =>
+          isPending
+            ? 'pending'
+            : isActive
+            ? 'border border-green-300 rounded-lg text-green-300 font-bold'
+            : ''
+        }
       >
         <ListItem className="flex items-center gap-2 py-2 pr-4">
           Listed Books
@@ -51,8 +61,15 @@ function NavList() {
         as="a"
         href="#"
         variant="small"
-        color="blue-gray"
-        className="font-medium"
+        className={({ isActive, isPending }) =>
+          isPending
+            ? 'pending'
+            : isActive
+            ? 'border border-green-300 rounded-lg text-green-300  font-bold'
+              : ''
+          
+          
+        }
       >
         <ListItem className="flex items-center gap-2 py-2 pr-4">
           Read to pages
